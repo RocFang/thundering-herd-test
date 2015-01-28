@@ -95,7 +95,6 @@ main (int argc, char *argv[])
     int k;
     for(k = 0; k < PROCESS_NUM; k++)
     {
-        printf("%d\n", k);
         int pid = fork();
         if(pid == 0)
         {

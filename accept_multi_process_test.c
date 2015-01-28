@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#define PROCESS_NUM 1000
+#define PROCESS_NUM 2000
 
 int main()
 {
