@@ -10,7 +10,7 @@
 #include <errno.h>
 #include <sys/wait.h>
 
-int worker_process = 2000;
+#define PROCESS_NUM 2000
 
 static int
 create_and_bind (char *port)
@@ -57,13 +57,7 @@ main (int argc, char *argv[])
     struct epoll_event event;
     struct epoll_event *events;
  
-    if (argc != 2)
-    {
-        fprintf (stderr, "Usage: %s [port]\n", argv[0]);
-        exit (EXIT_FAILURE);
-    }
- 
-    sfd = create_and_bind(argv[1]);
+    sfd = create_and_bind("1234");
     if (sfd == -1)
         abort ();
  
@@ -99,7 +93,7 @@ main (int argc, char *argv[])
     events = calloc(MAXEVENTS, sizeof event);
 
     int k;
-    for(k = 0; k < worker_process; k++)
+    for(k = 0; k < PROCESS_NUM; k++)
     {
         printf("%d\n", k);
         int pid = fork();
