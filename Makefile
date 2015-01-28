@@ -1,5 +1,5 @@
 all:
-	gcc accept_test.c -o accept_test
-	gcc epoll_test.c -o epoll_test
+	gcc accept_multi_process_test.c -o accept_multi_process_test.out
+	gcc epoll_single_process_test.c -o epoll_single_process_test.out
 clean:
-	rm -rf accept_test epoll_test
+	rm -rf *.out
