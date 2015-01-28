@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <string.h>
 
-int worker_process = 8;
+int worker_process = 1000;
 
 int main()
 {
@@ -23,7 +23,6 @@ int main()
     listen(fd, 1024);
 
     int i;
-    int n;
     for(i = 0; i < worker_process; i++)
     {
         int pid = fork();
