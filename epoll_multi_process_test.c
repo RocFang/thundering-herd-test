@@ -10,7 +10,7 @@
 #include <errno.h>
 #include <sys/wait.h>
 
-#define PROCESS_NUM 2000
+#define PROCESS_NUM 10
 
 static int
 create_and_bind (char *port)
@@ -105,6 +105,10 @@ main (int argc, char *argv[])
                 int n, i;
                 n = epoll_wait(efd, events, MAXEVENTS, -1);
                 printf("process %d return from epoll_wait!\n", getpid());
+
+                /* sleep here is very important!*/
+                sleep(2);
+
                 for (i = 0; i < n; i++)
                 {
                     if ((events[i].events & EPOLLERR) || (events[i].events & EPOLLHUP) || (!(events[i].events & EPOLLIN)))
