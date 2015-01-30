@@ -5,7 +5,7 @@
 #include <stdio.h>
 #include <string.h>
 
-#define PROCESS_NUM 2000
+#define PROCESS_NUM 10
 
 int main()
 {
@@ -32,6 +32,7 @@ int main()
             {
                 connfd = accept(fd, (struct sockaddr*)NULL, NULL);
                 snprintf(sendbuff, sizeof(sendbuff), "accept PID is %d\n", getpid());
+                
                 send(connfd, sendbuff, strlen(sendbuff) + 1, 0);
                 printf("process %d accept success!\n", getpid());
                 close(connfd);
